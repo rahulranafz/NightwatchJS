@@ -1,0 +1,47 @@
+{
+  "name": "test-suite",
+  "version": "1.0.0",
+  "description": "Test Suite using Nightwatch.js",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "eslint --ignore-path .gitignore .",
+    "login": "nightwatch test-suite/loginTests.js --config nightwatch.conf.js",
+    "customer-requests": "nightwatch test-suite/customerRequestsTests.js --config nightwatch.conf.js",
+    "request-approval": "nightwatch test-suite/requestApprovalTests.js --config nightwatch.conf.js",
+    "make-offer": "nightwatch test-suite/makeOfferTests.js --config nightwatch.conf.js",
+    "result": "nightwatch test-suite/loginTests.js test-suite/customerRequestsTests.js test-suite/makeOfferTests.js --config nightwatch.conf.js --reporter html-reporter2.js",
+    "build-result": "node ./page-objects",
+    "postinstall": "node nightwatch.conf.js",
+    "test-suite": "nightwatch test-suite/ --config nightwatch.conf.js",
+    "smoke-tests": "nightwatch test-suite/smoke-tests/ --config nightwatch.conf.js",
+    "browserstack": "./runner.js --config nightwatch.conf.js",
+    "document-code": "jsdoc -c jsdoc-conf.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "AD",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "browserstack-local": "^1.3.0",
+    "glob-fs": "^0.1.7",
+    "jasmine-xml2html-converter": "0.0.2",
+    "nightwatch-html-reporter": "^2.0.5",
+    "saucelabs": "^1.3.0",
+    "selenium-download": "^2.0.12"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.7.13",
+    "babel-watch": "^2.0.7",
+    "chromedriver": "^2.33.2",
+    "env2": "^2.1.1",
+    "eslint": "^4.19.1",
+    "eslint-config-strongloop": "^2.1.0",
+    "jsdoc": "^3.5.5",
+    "mime-types": "^2.1.18",
+    "nightwatch": "^0.9.20",
+    "nodemon": "^1.11.0",
+    "selenium-server": "^3.8.1"
+  }
+}
